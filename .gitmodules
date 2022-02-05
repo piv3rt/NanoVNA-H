@@ -2,3 +2,4 @@
 	path = ChibiOS
 	url = https://github.com/edy555/ChibiOS.git
 	branch = I2SFULLDUPLEX
+	shallow = true

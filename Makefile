@@ -237,10 +237,10 @@ CPPWARN = -Wall -Wextra -Wundef
 ifeq ($(TARGET),F303)
  UDEFS = -DARM_MATH_CM4 -DVERSION=\"$(VERSION)\" -DNANOVNA_F303
 else
- UDEFS = -DARM_MATH_CM0 -DVERSION=\"$(VERSION)\" 
+ UDEFS = -DARM_MATH_CM0 -DVERSION=\"$(VERSION)\"
 endif
 #Enable if use RTC and need auto select source LSE or LSI
-UDEFS+= -DVNA_AUTO_SELECT_RTC_SOURCE
+#UDEFS+= -DVNA_AUTO_SELECT_RTC_SOURCE
 #Enable if install external 32.768kHz clock quartz on PC14 and PC15 pins on STM32 CPU and no VNA_AUTO_SELECT_RTC_SOURCE
 #UDEFS+= -DVNA_USE_LSE
 
@@ -271,9 +271,8 @@ dfu:
 
 TAGS: Makefile
 ifeq ($(TARGET),F303)
-	@etags *.[ch] NANOVNA_STM32_F303/*.[ch] $(shell find ChibiOS/os/hal/ports/STM32/STM32F3xx ChibiOS/os -name \*.\[ch\] -print) 
+	@etags *.[ch] NANOVNA_STM32_F303/*.[ch] $(shell find ChibiOS/os/hal/ports/STM32/STM32F3xx ChibiOS/os -name \*.\[ch\] -print)
 else
-	@etags *.[ch] NANOVNA_STM32_F072/*.[ch] $(shell find ChibiOS/os/hal/ports/STM32/STM32F0xx ChibiOS/os -name \*.\[ch\] -print) 
+	@etags *.[ch] NANOVNA_STM32_F072/*.[ch] $(shell find ChibiOS/os/hal/ports/STM32/STM32F0xx ChibiOS/os -name \*.\[ch\] -print)
 endif
 	@ls -l TAGS
-

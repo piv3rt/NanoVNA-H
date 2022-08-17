@@ -46,7 +46,7 @@
 // Add SD card support, req enable RTC (additional settings for file system see FatFS lib ffconf.h)
 #define __USE_SD_CARD__
 // If enabled serial in halconf.h, possible enable serial console control
-#define __USE_SERIAL_CONSOLE__
+//#define __USE_SERIAL_CONSOLE__
 // Add show y grid line values option
 #define __USE_GRID_VALUES__
 // Add remote desktop option
@@ -229,7 +229,7 @@ typedef uint32_t freq_t;
 #define POINTS_SET_COUNT       3
 #define POINTS_SET             {51, 101, POINTS_COUNT}
 #define POINTS_COUNT_DEFAULT   101
-#elif POINTS_COUNT >=101
+#elif POINTS_COUNT >76
 #define POINTS_SET_COUNT       2
 #define POINTS_SET             {51, POINTS_COUNT}
 #define POINTS_COUNT_DEFAULT   POINTS_COUNT

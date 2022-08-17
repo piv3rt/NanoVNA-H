@@ -15,7 +15,7 @@ ifeq ($(USE_OPT),)
 USE_OPT = -O2 -fno-inline-small-functions -ggdb -fomit-frame-pointer -falign-functions=16 --specs=nano.specs -fstack-usage -std=c11 -DLCD_DRIVER_ST7796S -DLCD_480x320 -D__VNA_ENABLE_DAC__ -D__LCD_BRIGHTNESS__  -DPOINTS_COUNT=401  -DLCD_480x320
 #USE_OPT+=-fstack-protector-strong
  else
-USE_OPT = -O2 -fno-inline-small-functions -ggdb -fomit-frame-pointer -falign-functions=16 --specs=nano.specs -fstack-usage -std=c11 -DLCD_DRIVER_ILI9341 -DLCD_320x240 -D__DFU_SOFTWARE_MODE__  -DPOINTS_COUNT=101 -DLCD_320x240
+USE_OPT = -O2 -fno-inline-small-functions -ggdb -fomit-frame-pointer -falign-functions=16 --specs=nano.specs -fstack-usage -std=c11 -DLCD_DRIVER_ILI9341 -DLCD_320x240 -D__DFU_SOFTWARE_MODE__  -DPOINTS_COUNT=99 -DLCD_320x240
 
  endif
 endif
@@ -240,9 +240,9 @@ else
  UDEFS = -DARM_MATH_CM0 -DVERSION=\"$(VERSION)\" 
 endif
 #Enable if use RTC and need auto select source LSE or LSI
-UDEFS+= -DVNA_AUTO_SELECT_RTC_SOURCE
+#UDEFS+= -DVNA_AUTO_SELECT_RTC_SOURCE
 #Enable if install external 32.768kHz clock quartz on PC14 and PC15 pins on STM32 CPU and no VNA_AUTO_SELECT_RTC_SOURCE
-#UDEFS+= -DVNA_USE_LSE
+UDEFS+= -DVNA_USE_LSE
 
 # Define ASM defines here
 UADEFS =
